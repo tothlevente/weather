@@ -1,4 +1,4 @@
-import { CloudSunIcon } from "lucide-react";
+import { CloudSunIcon, MoonIcon, SunIcon } from "lucide-react";
 
 export default function Header({
   isDarkMode,
@@ -13,7 +13,12 @@ export default function Header({
         <CloudSunIcon />
         <p>Weather</p>
       </div>
-      <button onClick={toggleMode}>{isDarkMode ? "Light Mode" : "Dark Mode"}</button>
+      <button
+        className="header-toggle"
+        onClick={toggleMode}
+      >
+        {isDarkMode ? <MoonIcon className="w-5 h-5" /> : <SunIcon className="w-5 h-5" />}
+      </button>
     </div>
   );
 }

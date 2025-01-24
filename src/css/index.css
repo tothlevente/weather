@@ -39,3 +39,15 @@ html.dark-mode body {
   font-weight: bold;
   gap: 3px;
 }
+
+.header-toggle {
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.dark-mode .header-toggle {
+  color: #f5f5f5;
+}
