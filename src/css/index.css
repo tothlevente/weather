@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "JosefinSans";
+  src: url("/src/fonts/JosefinSans.ttf") format("truetype");
+  style: "normal";
+  weight: "100 900";
+}
+
+body {
+  font-family: "JosefinSans", sans-serif;
+  font-size: medium;
+  line-height: 1.8;
+}
