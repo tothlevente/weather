@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  gap: 3px;
+}
+
+.header-icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 9px;
+}
+
+.header-toggle {
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.dark-mode .header-toggle {
+  color: #f5f5f5;
+}
