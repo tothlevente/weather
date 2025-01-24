@@ -1,5 +1,6 @@
 @import url("header.css");
 @import url("throbber.css");
+@import url("weather.css");
 
 @font-face {
   font-family: "JosefinSans";
@@ -10,18 +11,12 @@
 
 body {
   font-family: "JosefinSans", sans-serif;
-  background-color: #f5f5f5;
+  background-color: #7dd3fc;
   font-size: medium;
   line-height: 1.8;
 }
 
 html.dark-mode body {
-  background-color: #262626;
+  background-color: #082f49;
   color: #f5f5f5;
-}
-
-.weather-container {
-  padding: 20px;
-  border: 1px solid #d4d4d4;
-  border-radius: 5px;
 }
