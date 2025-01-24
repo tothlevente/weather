@@ -1,4 +1,4 @@
-export default interface PositionProps {
+export default interface Position {
   latitude: number;
   longitude: number;
 }

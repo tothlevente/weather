@@ -1,4 +1,4 @@
-import WeatherDataProps from "../interface/WeatherDataProps";
+import WeatherDataProps from "../interface/WeatherData";
 
 const tempWeatherData: WeatherDataProps = {
   weather: [
