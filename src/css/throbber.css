@@ -20,6 +20,7 @@
 
 .dark-mode .throbber {
   border-color: #f5f5f5;
+  border-top-color: #262626;
 }
 
 @keyframes spin {
