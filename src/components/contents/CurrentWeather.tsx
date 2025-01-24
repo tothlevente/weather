@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 
-import WeatherDataProps from "../../interface/WeatherDataProps";
-import PositionProps from "../../interface/PositionProps";
+import WeatherData from "../../interface/WeatherData";
+
 import WeatherIcon from "../weather-icon";
+import Position from "@/interface/Position";
 
 export default function CurrentWeather() {
-  const [weatherData, setWeatherData] = useState<WeatherDataProps | null>(
-    null
-  );
-  const [position, setPosition] = useState<PositionProps | null>(null);
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
+  const [position, setPosition] = useState<Position | null>(null);
 
   useEffect(() => {
     const success = (pos: GeolocationPosition) => {
@@ -64,8 +63,7 @@ export default function CurrentWeather() {
           <span>Pressure: {weatherData.main.pressure}</span>
           <span>Humidity: {weatherData.main.humidity}%</span>
           <span>
-            {weatherData.weather[0].main}:{" "}
-            {weatherData.weather[0].description}
+            {weatherData.weather[0].main}: {weatherData.weather[0].description}
           </span>
         </div>
       </div>
