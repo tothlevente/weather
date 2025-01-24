@@ -45,8 +45,9 @@ export default function CurrentWeather() {
         <div className="weather-data">
           <span>Temperature: {weatherData.main.temp}°C</span>
           <span>Feels like: {weatherData.main.feels_like}°C</span>
-          <span>Temperature (maximum): {weatherData.main.temp_max}°C</span>
-          <span>Temperature (minimum): {weatherData.main.temp_min}°C</span>
+          <span>Maximum: {weatherData.main.temp_max}°C</span>
+          <span>Minimum: {weatherData.main.temp_min}°C</span>
+          <span className="separator"></span>
           <span>Pressure: {weatherData.main.pressure}</span>
           <span>Humidity: {weatherData.main.humidity}%</span>
           <span>
