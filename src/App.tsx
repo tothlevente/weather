@@ -12,7 +12,7 @@ export default function App() {
   };
 
   return (
-    <div className={`app-container ${isDarkMode ? "dark-mode" : ""}`}>
+    <div className={`${isDarkMode ? "dark-mode" : ""}`}>
       <Header
         isDarkMode={isDarkMode}
         toggleMode={toggleMode}

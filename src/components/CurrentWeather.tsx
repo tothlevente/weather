@@ -22,7 +22,12 @@ export default function CurrentWeather() {
   }, []);
 
   if (!weatherData) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loading-container">
+        <div className="throbber"></div>
+        <span className="loading-text">Loading...</span>
+      </div>
+    );
   }
 
   return (
