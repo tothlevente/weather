@@ -1,36 +1,47 @@
 import { useState, useEffect } from "react";
 
 import WeatherDataProps from "../interface/WeatherDataProps";
-import tempWeatherData from "../data/tempWeatherData";
+import PositionProps from "../interface/PositionProps";
 import WeatherIcon from "./WeatherIcon";
 
 export default function CurrentWeather() {
   const [weatherData, setWeatherData] = useState<WeatherDataProps | null>(null);
+  const [position, setPosition] = useState<PositionProps | null>(null);
 
   useEffect(() => {
-    // const fetchData = async () => {
-    //   try {
-    //     const response = await fetch(
-    //       "https://api.openweathermap.org/data/2.5/weather?q=Budapest&units=metric&appid="
-    //     );
-    //     const data = await response.json();
-    //     console.log("data");
-    //     console.log(data);
-    //     setWeatherData(data);
-    //   } catch (error) {
-    //     console.error("Error fetching weather data:", error);
-    //   }
-    // };
-    // fetchData();
+    const success = (pos: GeolocationPosition) => {
+      const { latitude, longitude } = pos.coords;
+      setPosition({ latitude, longitude });
+    };
 
-    setWeatherData(tempWeatherData);
+    const error = (err: GeolocationPositionError) => {
+      console.error(`Error getting location: ${err.message}`);
+
+      return <div>Error getting location:</div>;
+    };
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
   }, []);
+
+  if (!position) {
+    return (
+      <div className="center-container">
+        <span className="center-container-text">
+          Geolocation is not supported by this browser...
+        </span>
+      </div>
+    );
+  }
 
   if (!weatherData) {
     return (
-      <div className="loading-container">
+      <div className="center-container">
         <div className="throbber"></div>
-        <span className="loading-text">Loading...</span>
+        <span className="center-container-text">Loading...</span>
       </div>
     );
   }
