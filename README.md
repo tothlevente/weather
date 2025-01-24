@@ -23,7 +23,7 @@ To use this project, you must obtain your own API key from OpenWeatherMap and co
 2. OpenWeatherMap website: OpenWeatherMap
 3. Obtain your API key from your account dashboard.
 4. Create a file named `.env.local` in the root directory of this project.
-5. Add the following line to the `.env.local` file, replacing your_actual_api_key with your actual API key: `OPEN_WEATHER_MAP_API=your_actual_api_key`
+5. Add the following line to the `.env.local` file, replacing your_actual_api_key with your actual API key: `VITE_OPEN_WEATHER_MAP_API=your_actual_api_key`
 
 ## Important Notes:
 
