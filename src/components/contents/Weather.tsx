@@ -1,20 +1,19 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
 import WeatherDataProps from "@/interface/WeatherData";
 import Position from "@/interface/Position";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import tempWeatherData from "@/temp/tempWeatherData"; // TODO: Temporary only for development! Delete if no longer needed!
 
 export default function Weather() {
   const [weatherData, setWeatherData] = useState<WeatherDataProps | null>(null);
   const [position, setPosition] = useState<Position | null>(null);
+
+  useEffect(() => {
+    setWeatherData(tempWeatherData); // TODO: Delete if no longer needed!
+  }, []);
+
+  console.log(weatherData); // TODO: Delete if no longer needed!
 
   if (!weatherData) {
     return (
@@ -25,18 +24,5 @@ export default function Weather() {
     );
   }
 
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <p>Card Content</p>
-      </CardContent>
-      <CardFooter>
-        <p>Card Footer</p>
-      </CardFooter>
-    </Card>
-  );
+  return <div></div>;
 }
