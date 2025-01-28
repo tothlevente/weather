@@ -1,7 +1,7 @@
+import { Units } from "../interface/Units";
 import { atom } from "jotai";
 
 import Position from "../interface/Position";
-import Unit from "../interface/Unit";
 
 /**
  * Fetches weather data for a given city and unit from the OpenWeatherMap API.
@@ -11,18 +11,20 @@ import Unit from "../interface/Unit";
  * @returns A promise that resolves to the weather data for the specified city.
  * @throws Will log an error message to the console if the fetch operation fails.
  */
-export const weatherDataByCity = atom(async (city: string, unit: Unit) => {
-  try {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${process.env.VITE_OPEN_WEATHER_MAP_API}`
-    );
+export const weatherDataByCity = atom(
+  async (city: string, unit: Units = Units.Metric) => {
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${process.env.VITE_OPEN_WEATHER_MAP_API}`
+      );
 
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching weather data:", error);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching weather data:", error);
+    }
   }
-});
+);
 
 /**
  * Fetches weather data based on the provided geographical position and unit.
@@ -32,14 +34,16 @@ export const weatherDataByCity = atom(async (city: string, unit: Unit) => {
  * @returns A promise that resolves to the weather data for the specified position and unit.
  * @throws Will log an error message to the console if the fetch operation fails.
  */
-export const weatherDataByPosition = atom(async (position: Position, unit: Unit) => {
-  try {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${position.latitude}&lon=${position.longitude}&units=${unit}&appid=${process.env.VITE_OPEN_WEATHER_MAP_API}`
-    );
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching weather data:", error);
+export const weatherDataByPosition = atom(
+  async (position: Position, unit: Units = Units.Metric) => {
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${position.latitude}&lon=${position.longitude}&units=${unit}&appid=${process.env.VITE_OPEN_WEATHER_MAP_API}`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching weather data:", error);
+    }
   }
-});
+);
