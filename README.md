@@ -43,6 +43,7 @@ This project is for educational and demonstrative purposes only. The author is n
 
 ## Used external sources:
 
+- [Shadcn UI](https://ui.shadcn.com/)
 - [Lucide Icons](https://lucide.dev)
 - [Google Fonts](https://fonts.google.com/specimen/Josefin+Sans)
 - [Josefin Sans Font](https://github.com/googlefonts/josefinsans)
