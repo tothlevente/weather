@@ -1,6 +1,6 @@
-import WeatherDataProps from "../interface/WeatherData";
+import WeatherData from "../interface/WeatherData";
 
-const tempWeatherData: WeatherDataProps = {
+const tempWeatherData: WeatherData = {
   weather: [
     {
       main: "Clouds",
@@ -13,13 +13,9 @@ const tempWeatherData: WeatherDataProps = {
     feels_like: 9.49,
     temp_min: 9.78,
     temp_max: 11.25,
-    pressure: 996,
-    humidity: 71,
   },
   wind: {
     speed: 8.23,
-    deg: 230,
-    gust: 15.95,
   },
   name: "London",
 };

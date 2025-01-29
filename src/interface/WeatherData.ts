@@ -1,12 +1,10 @@
-export default interface WeatherDataProps {
+export default interface WeatherData {
   name: string;
   main: {
     temp: number;
     feels_like: number;
     temp_min: number;
     temp_max: number;
-    pressure: number;
-    humidity: number;
   };
   weather: {
     main: string;
@@ -15,7 +13,5 @@ export default interface WeatherDataProps {
   }[];
   wind: {
     speed: number;
-    deg: number;
-    gust: number;
   };
 }
