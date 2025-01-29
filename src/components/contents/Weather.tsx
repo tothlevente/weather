@@ -2,18 +2,22 @@ import WeatherDataProps from "@/interface/WeatherData";
 import Position from "@/interface/Position";
 
 import { useEffect, useState } from "react";
-
-import tempWeatherData from "@/temp/tempWeatherData"; // TODO: Temporary only for development! Delete if no longer needed!
+import { GetWeatherDataByCity } from "@/api/WeatherApi";
 
 export default function Weather() {
   const [weatherData, setWeatherData] = useState<WeatherDataProps | null>(null);
   const [position, setPosition] = useState<Position | null>(null);
 
   useEffect(() => {
-    setWeatherData(tempWeatherData); // TODO: Delete if no longer needed!
+    const fetchData = async () => {
+      const weatherDataByCity = GetWeatherDataByCity("London");
+      setWeatherData(await weatherDataByCity);
+    };
+
+    fetchData();
   }, []);
 
-  console.log(weatherData); // TODO: Delete if no longer needed!
+  console.log(weatherData);
 
   if (!weatherData) {
     return (
