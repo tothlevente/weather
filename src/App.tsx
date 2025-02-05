@@ -1,4 +1,4 @@
-import Weather from "./components/layouts/Weather";
+import WeatherPage from "./components/layouts/WeatherPage";
 import Footer from "./components/layouts/Footer";
 import Header from "./components/layouts/Header";
 import Position from "./interface/Position";
@@ -9,7 +9,6 @@ import { useState } from "react";
 
 export default function App() {
   const [position, setPosition] = useState<Position | null>(null);
-  const [city, setCity] = useState("London");
 
   return (
     <ThemeProvider
@@ -22,10 +21,7 @@ export default function App() {
           setPosition={setPosition}
         />
         <div className="container">
-          <Weather
-            position={position!}
-            city={city}
-          />
+          <WeatherPage />
         </div>
         <Toaster />
         <Footer />
