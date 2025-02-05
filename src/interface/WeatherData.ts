@@ -3,13 +3,15 @@ export default interface WeatherData {
   main: {
     temp: number;
     feels_like: number;
+    temp_max: number;
+    temp_min: number;
     humidity: number;
     pressure: number;
   };
   weather: [
     {
       description: string;
-      icon: string; // You might use this for weather icons
+      icon: string;
     }
   ];
   wind: {
