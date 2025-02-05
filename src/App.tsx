@@ -21,7 +21,7 @@ export default function App() {
           setPosition={setPosition}
         />
         <div className="container">
-          <WeatherPage />
+          <WeatherPage position={position!} />
         </div>
         <Toaster />
         <Footer />

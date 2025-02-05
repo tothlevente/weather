@@ -6,36 +6,32 @@ import {
   CardContent,
 } from "@/components/ui/card";
 
+import { GetWeatherDataByCity, GetWeatherDataByPosition } from "@/api/WeatherApi";
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "../ui/input";
 
 import WeatherData from "@/interface/WeatherData";
+import Position from "@/interface/Position";
 
-const WeatherPage: React.FC = () => {
+const WeatherPage = ({ position }: { position: Position }) => {
   const [city, setCity] = useState("London");
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const API_KEY = import.meta.env.VITE_OPEN_WEATHER_MAP_API;
 
   const fetchWeatherData = async () => {
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
-      );
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "City not found");
+      if (position) {
+        const data = await GetWeatherDataByPosition(position);
+        setWeatherData(data);
+      } else {
+        const data = await GetWeatherDataByCity(city);
+        setWeatherData(data);
       }
-
-      const data: WeatherData = await response.json();
-      setWeatherData(data);
     } catch (err: any) {
       console.error("Error fetching weather data:", err);
       setError(err.message);
@@ -46,7 +42,7 @@ const WeatherPage: React.FC = () => {
 
   useEffect(() => {
     fetchWeatherData();
-  }, []);
+  }, [position]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
