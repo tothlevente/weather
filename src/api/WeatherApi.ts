@@ -27,10 +27,14 @@ export async function GetWeatherDataByCity(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`
     );
 
+    if (!response.ok) {
+      throw new Error(`Error fetching weather data: ${response.statusText}`);
+    }
     const data = await response.json();
     return data;
   } catch (error) {
     console.error("Error fetching weather data:", error);
+    throw error;
   }
 }
 
@@ -51,10 +55,15 @@ export async function GetWeatherDataByPosition(
       `https://api.openweathermap.org/data/2.5/weather?lat=${position.latitude}&lon=${position.longitude}&units=${unit}&appid=${apiKey}`
     );
 
+    if (!response.ok) {
+      throw new Error(`Error fetching weather data: ${response.statusText}`);
+    }
+
     const data = await response.json();
     return data;
   } catch (error) {
     console.error("Error fetching weather data:", error);
+    throw error;
   }
 }
 
@@ -75,10 +84,15 @@ export async function GetForecastDataByCity(
       `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${unit}&appid=${apiKey}`
     );
 
+    if (!response.ok) {
+      throw new Error(`Error fetching weather data: ${response.statusText}`);
+    }
+
     const data = await response.json();
     return data;
   } catch (error) {
     console.error("Error fetching forecast data:", error);
+    throw error;
   }
 }
 
@@ -99,9 +113,14 @@ export async function GetForecastDataByPosition(
       `https://api.openweathermap.org/data/2.5/forecast?lat=${position.latitude}&lon=${position.longitude}&units=${unit}&appid=${apiKey}`
     );
 
+    if (!response.ok) {
+      throw new Error(`Error fetching weather data: ${response.statusText}`);
+    }
+
     const data = await response.json();
     return data;
   } catch (error) {
     console.error("Error fetching weather data:", error);
+    throw error;
   }
 }

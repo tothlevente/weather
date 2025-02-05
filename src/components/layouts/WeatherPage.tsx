@@ -9,6 +9,7 @@ import {
 import { GetWeatherDataByCity, GetWeatherDataByPosition } from "@/api/WeatherApi";
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 import { Input } from "../ui/input";
 
 import WeatherData from "@/interface/WeatherData";
@@ -18,11 +19,11 @@ const WeatherPage = ({ position }: { position: Position }) => {
   const [city, setCity] = useState("London");
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+
+  const { toast } = useToast();
 
   const fetchWeatherData = async () => {
     setLoading(true);
-    setError(null);
 
     try {
       if (position) {
@@ -33,8 +34,11 @@ const WeatherPage = ({ position }: { position: Position }) => {
         setWeatherData(data);
       }
     } catch (err: any) {
-      console.error("Error fetching weather data:", err);
-      setError(err.message);
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: err.message,
+      });
     } finally {
       setLoading(false);
     }
@@ -68,7 +72,6 @@ const WeatherPage = ({ position }: { position: Position }) => {
           {loading ? "Loading..." : "Get Weather"}
         </Button>
       </form>
-      {error && <p className="text-red-500 mb-4">{error}</p>}{" "}
       {weatherData && (
         <Card>
           <CardHeader>
