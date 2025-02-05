@@ -1,9 +1,10 @@
 import Weather from "./components/layouts/Weather";
 import Footer from "./components/layouts/Footer";
 import Header from "./components/layouts/Header";
+import Position from "./interface/Position";
 
 import { ThemeProvider } from "./components/ThemeProvider";
-import Position from "./interface/Position";
+import { Toaster } from "@/components/ui/toaster";
 import { useState } from "react";
 
 export default function App() {
@@ -16,13 +17,17 @@ export default function App() {
       storageKey="vite-ui-theme"
     >
       <div className="wrapper">
-        <Header />
+        <Header
+          position={position!}
+          setPosition={setPosition}
+        />
         <div className="container">
           <Weather
             position={position!}
             city={city}
           />
         </div>
+        <Toaster />
         <Footer />
       </div>
     </ThemeProvider>
