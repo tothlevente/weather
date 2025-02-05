@@ -1,5 +1,5 @@
 import { CloudSunIcon } from "lucide-react";
-import { ModeToggle } from "../mode-toggle";
+import { ModeToggle } from "../ModeToggle";
 
 export default function Header() {
   return (
