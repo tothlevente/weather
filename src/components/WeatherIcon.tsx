@@ -1,5 +1,10 @@
-export default function WeatherIcon({ icon }: { icon: string }) {
-  const size = "120px";
+export default function WeatherIcon({
+  icon,
+  size = "100px",
+}: {
+  icon: string;
+  size?: string;
+}) {
   return (
     <img
       src={`https://openweathermap.org/img/wn/${icon}@2x.png`}

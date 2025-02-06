@@ -14,9 +14,10 @@ import { Input } from "../ui/input";
 
 import WeatherData from "@/interface/WeatherData";
 import Position from "@/interface/Position";
+import WeatherIcon from "../WeatherIcon";
 
 const WeatherPage = ({ position }: { position: Position }) => {
-  const [city, setCity] = useState("London");
+  const [city, setCity] = useState("Wellington");
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -76,7 +77,15 @@ const WeatherPage = ({ position }: { position: Position }) => {
         <Card>
           <CardHeader>
             <CardTitle>
-              {weatherData.name}, {weatherData.sys.country}
+              <div className="text-[50px] font-bold">
+                <span className="">{weatherData.main.temp}°C</span>
+                <div className="flex flex-row justify-between items-center">
+                  <span>
+                    {weatherData.name}, {weatherData.sys.country}
+                  </span>
+                  <WeatherIcon icon={weatherData.weather[0].icon} />
+                </div>
+              </div>
             </CardTitle>
             <CardDescription>{weatherData.weather[0].description}</CardDescription>
           </CardHeader>
