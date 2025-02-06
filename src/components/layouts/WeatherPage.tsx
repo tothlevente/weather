@@ -55,7 +55,7 @@ const WeatherPage = ({ position }: { position: Position }) => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="mx-auto p-4">
       <form
         onSubmit={handleSubmit}
         className="mb-4 flex gap-2"
@@ -79,7 +79,7 @@ const WeatherPage = ({ position }: { position: Position }) => {
             <CardTitle>
               <div className="text-[50px] font-bold">
                 <span className="text-[70px]">{weatherData.main.temp}°C</span>
-                <div className="flex flex-row justify-between items-center">
+                <div className="grid justify-items-start justify-between items-center">
                   <span>
                     {weatherData.name}, {weatherData.sys.country}
                   </span>

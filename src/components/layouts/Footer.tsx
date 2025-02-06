@@ -5,21 +5,18 @@ import packageJson from "../../../package.json";
 
 export default function Footer() {
   return (
-    <div className="footer">
+    <div className="grid place-content-center place-items-center text-center mt-8">
       <p>This website is open-source and licensed under the MIT.</p>
-      <p>
-        This website does not use cookies and does not collect data about
-        you.
-      </p>
+      <p>This website does not use cookies and does not collect data about you.</p>
       <p>For more information, please visit the project repository.</p>
       <p>Thank you for your visit and interest! 👍️</p>
       <p>Created by Levente in 2025 | v{packageJson.version}</p>
-      <div className="footer-link">
+      <div className="flex flex-row p-2.5">
         <Button asChild>
           <a
             href={packageJson.repository}
             target="_blank"
-            style={{ marginRight: "8px" }}
+            className="w-[130px] mr-2"
           >
             <ExternalLinkIcon />
             Repository
@@ -29,7 +26,7 @@ export default function Footer() {
           <a
             href={packageJson.repository + "/blob/main/LICENSE"}
             target="_blank"
-            style={{ marginRight: "8px" }}
+            className="w-[130px] mr-2"
           >
             <ExternalLinkIcon />
             License

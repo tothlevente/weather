@@ -15,12 +15,12 @@ export default function App() {
       defaultTheme="light"
       storageKey="vite-ui-theme"
     >
-      <div className="wrapper">
+      <div className="xs:flex xs:flex-col xs:min-h-screen">
         <Header
           position={position!}
           setPosition={setPosition}
         />
-        <div className="container">
+        <div className="xs:flex-1">
           <WeatherPage position={position!} />
         </div>
         <Toaster />
