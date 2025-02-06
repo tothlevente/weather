@@ -9,8 +9,8 @@ import {
 import { GetWeatherDataByCity, GetWeatherDataByPosition } from "@/api/WeatherApi";
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { Input } from "../ui/input";
 
 import WeatherData from "@/interface/WeatherData";
 import Position from "@/interface/Position";
@@ -78,7 +78,7 @@ const WeatherPage = ({ position }: { position: Position }) => {
           <CardHeader>
             <CardTitle>
               <div className="text-[50px] font-bold">
-                <span className="">{weatherData.main.temp}°C</span>
+                <span className="text-[70px]">{weatherData.main.temp}°C</span>
                 <div className="flex flex-row justify-between items-center">
                   <span>
                     {weatherData.name}, {weatherData.sys.country}

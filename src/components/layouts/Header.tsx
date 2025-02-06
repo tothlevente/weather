@@ -14,7 +14,7 @@ export default function Header({
   return (
     <div className="flex justify-between items-center m-5">
       <div className="flex flex-nowrap flex-row justify-center">
-        <CloudSunIcon />
+        <CloudSunIcon className="dark:text-shui-amber-500" />
         <p className="ml-1 font-bold">Weather</p>
       </div>
       <div className="grid grid-cols-2 gap-2">
