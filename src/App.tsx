@@ -21,7 +21,10 @@ export default function App() {
           setPosition={setPosition}
         />
         <div className="xs:flex-1">
-          <WeatherPage position={position!} />
+          <WeatherPage
+            position={position!}
+            setPosition={setPosition}
+          />
         </div>
         <Toaster />
         <Footer />

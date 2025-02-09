@@ -7,16 +7,23 @@ import {
 } from "@/components/ui/card";
 
 import { GetWeatherDataByCity, GetWeatherDataByPosition } from "@/api/WeatherApi";
-import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
 import WeatherData from "@/interface/WeatherData";
 import Position from "@/interface/Position";
 import WeatherIcon from "../WeatherIcon";
+import React from "react";
 
-const WeatherPage = ({ position }: { position: Position }) => {
+const WeatherPage = ({
+  position,
+  setPosition,
+}: {
+  position: Position;
+  setPosition: React.Dispatch<React.SetStateAction<Position | null>>;
+}) => {
   const [city, setCity] = useState("Wellington");
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -30,6 +37,7 @@ const WeatherPage = ({ position }: { position: Position }) => {
       if (position) {
         const data = await GetWeatherDataByPosition(position);
         setWeatherData(data);
+        setCity(data.name);
       } else {
         const data = await GetWeatherDataByCity(city);
         setWeatherData(data);
@@ -42,6 +50,7 @@ const WeatherPage = ({ position }: { position: Position }) => {
       });
     } finally {
       setLoading(false);
+      setPosition(null);
     }
   };
 
