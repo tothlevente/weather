@@ -1,17 +1,16 @@
 import { Loader2, LocateFixedIcon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 import Position from "@/interface/Position";
 
-export function LocateUser({
-  position,
-  setPosition,
-}: {
+interface Props {
   position: Position;
   setPosition: React.Dispatch<React.SetStateAction<Position | null>>;
-}) {
+}
+
+export function LocateUser({ position, setPosition }: Props) {
   const [locationRequested, setLocationRequested] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
