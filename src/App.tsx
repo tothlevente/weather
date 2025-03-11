@@ -1,9 +1,9 @@
-import WeatherPage from "./components/layouts/WeatherPage";
-import Footer from "./components/layouts/Footer";
-import Header from "./components/layouts/Header";
+import WeatherPage from "./components/weather/WeatherPage";
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
 import Position from "./interface/Position";
 
-import { ThemeProvider } from "./components/ThemeProvider";
+import { ThemeProvider } from "./components/theme/ThemeProvider";
 import { Toaster } from "@/components/ui/toaster";
 import { useState } from "react";
 

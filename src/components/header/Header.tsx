@@ -1,16 +1,15 @@
+import { LocateUser } from "../weather/LocateUser";
+import { ModeToggle } from "../theme/ModeToggle";
 import { CloudSunIcon } from "lucide-react";
-import { ModeToggle } from "../ModeToggle";
-import { LocateUser } from "../LocateUser";
 
 import Position from "@/interface/Position";
 
-export default function Header({
-  position,
-  setPosition,
-}: {
+interface Props {
   position: Position;
   setPosition: React.Dispatch<React.SetStateAction<Position | null>>;
-}) {
+}
+
+export default function Header({ position, setPosition }: Props) {
   return (
     <div className="flex justify-between items-center m-5">
       <div className="flex flex-nowrap flex-row justify-center">

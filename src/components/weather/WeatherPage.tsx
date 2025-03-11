@@ -14,16 +14,15 @@ import { useToast } from "@/hooks/use-toast";
 
 import WeatherData from "@/interface/WeatherData";
 import Position from "@/interface/Position";
-import WeatherIcon from "../WeatherIcon";
+import WeatherIcon from "../../assets/icons/WeatherIcon";
 import React from "react";
 
-const WeatherPage = ({
-  position,
-  setPosition,
-}: {
+interface Props {
   position: Position;
   setPosition: React.Dispatch<React.SetStateAction<Position | null>>;
-}) => {
+}
+
+const WeatherPage = ({ position, setPosition }: Props) => {
   const [city, setCity] = useState("Wellington");
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(false);
